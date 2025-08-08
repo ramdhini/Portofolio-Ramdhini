@@ -11,11 +11,11 @@ html {
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
-    color: #3B38A0; /* Warna teks utama */
+    color: #3B38A0; 
     background: linear-gradient(135deg, #F8FAFC 0%, #D9EAFD 50%, #3B38A0 100%);
     min-height: 100vh;
-    background-size: 400% 400%; /* Ukuran gradasi lebih besar untuk animasi */
-    animation: gradientShift 15s ease infinite; /* Animasi latar belakang */
+    background-size: 400% 400%; 
+    animation: gradientShift 15s ease infinite; 
 }
 
 @keyframes gradientShift {
@@ -26,13 +26,23 @@ body {
 
 header {
     position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(248, 250, 252, 0.9); /* Latar belakang header lebih cerah */
+    top: 20px;
+    width: 90%;
+    background: rgba(248, 250, 252, 0.9);
     backdrop-filter: blur(15px);
     box-shadow: 0 8px 32px rgba(154, 166, 178, 0.1);
     z-index: 1000;
     transition: all 0.3s ease;
+    border-radius: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    transform: translateY(0) translateX(-50%);
+    transition: transform 0.3s ease-in-out;
+
+}
+
+header.hide-header {
+    transform: translateY(-150%) translateX(-50%);
 }
 
 nav {
@@ -110,6 +120,7 @@ section{
 
 .main-container .image img{
     width: 100%;
+    margin-top: -150px;
 }
 
 .main-container .content{
@@ -154,9 +165,18 @@ section{
     animation:  cursor 0.6s linear infinite;
 }
 
+
+@keyframes words {
+    0% { content: "Web Developer"; }
+   
+    50% { content: "Front-End"; }
+
+    100% { content: "Back-End"; }
+}
+
 @keyframes cursor {
     to{
-        border-left: 3px solid #3B38A0;
+        border-left: 3px solid #d8d8e8;
     }
 }
 
@@ -288,16 +308,28 @@ section:nth-child(6) { animation-delay: 1s; }
 }
 
 h2 {
-    font-size: 2rem;
-    margin-bottom: 3rem;
-    text-align: center;
-    background: linear-gradient(135deg, #3B38A0, #3B38A0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 600;
-    letter-spacing: -1px;
-}
+            font-size: clamp(1.8rem, 3vw, 1.8rem);
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, #3B38A0, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #3B38A0, #6366f1);
+            border-radius: 2px;
+        }
 
 .about-section {
     display: grid;
@@ -324,12 +356,26 @@ h2 {
     margin-bottom: 1rem;
 }
 
+.about-text h2::after{
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 7%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(135deg, #3B38A0, #6366f1);
+            border-radius: 2px;
+}
+
+
 .about-text p {
     font-size: 1rem;
     color: #3B38A0;
     line-height: 1.8;
     font-weight: 400;
     text-align: justify;
+    margin-top: 40px;
 }
 
 .about-image {
@@ -363,10 +409,10 @@ h2 {
 }
 
 #experience {
-    background: rgba(248, 250, 252, 0.6);
+    background: transparent;
     padding: 4rem;
     border-radius: 40px;
-    box-shadow: 0 25px 80px rgba(154, 166, 178, 0.15);
+    box-shadow: 0 25px 80px rgba(13, 45, 77, 0.15);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(217, 234, 253, 0.3);
     position: relative;
@@ -386,11 +432,14 @@ h2 {
 }
 
 .experience-item {
+    background: rgba(248, 250, 252, 0.8);
+    padding: 30px;
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 3rem;
     align-items: center;
     margin-top: 3rem;
+    border-radius: 20px;
 }
 
 .experience-text h3 {
@@ -459,10 +508,10 @@ h2 {
 }
 
 #projects {
-    background: rgba(248, 250, 252, 0.6);
+    background: transparent;
     padding: 4rem;
     border-radius: 40px;
-    box-shadow: 0 25px 80px rgba(154, 166, 178, 0.15);
+    box-shadow: 0 25px 80px rgba(13, 45, 77, 0.15);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(217, 234, 253, 0.3);
     position: relative;
@@ -533,10 +582,10 @@ h2 {
 }
 
 #certificate {
-    background: rgba(248, 250, 252, 0.6);
+    background: transparent;
     padding: 4rem;
     border-radius: 40px;
-    box-shadow: 0 25px 80px rgba(154, 166, 178, 0.15);
+     box-shadow: 0 25px 80px rgba(13, 45, 77, 0.15);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(217, 234, 253, 0.3);
     position: relative;
